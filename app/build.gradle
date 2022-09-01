@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.sunmi.iotsdk.demo"
+        minSdk 23
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+    }
+
+    //TODO 配置系统签名
+//    signingConfigs {
+//        /**
+//         * 系统签名
+//         */
+//        sys_sign {
+//            storeFile file('********')
+//            storePassword "********"
+//            keyAlias "********"
+//            keyPassword "********"
+//        }
+//    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            //TODO 配置系统签名
+//            signingConfig signingConfigs.sys_sign
+        }
+        debug {
+            //TODO 配置系统签名
+//            signingConfig signingConfigs.sys_sign
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.6.1'
+
+    implementation "com.sunmi:connService.iotsdk:1.0.0"
+    implementation "com.sunmi:ThingAdapter-SDK:1.0.9"
+}
